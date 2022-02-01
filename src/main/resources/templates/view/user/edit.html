@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">All Users</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Users</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">User</a></li>
+                            <li class="breadcrumb-item active">Edit</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+
+                <!-- Horizontal Form -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit User</h3>
+                        &nbsp;&nbsp;
+                        <a href="/user/index" th:href="@{/user/index}" class=""><i class="fas fa-long-arrow-alt-left"></i> Back to List</a>
+                        &nbsp;|&nbsp;
+                        <a href="/user/create" th:href="@{/user/create}" class=""><i class="fas fa-file-alt"></i> New Form</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="#" th:action="@{/user/update}" th:object="${user}" method="post" class="form-horizontal">
+                        <div class="card-body">
+
+                            <input type="hidden" id="id" th:field="*{id}">
+
+                            <div class="form-group row">
+                                <label for="username" class="col-form-label col-sm-2 ">Username</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{username}" class="form-control" id="username" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-form-label col-sm-2 ">Password</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{password}" class="form-control" id="password" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="userType" class="col-form-label col-sm-2 ">User Type</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{userType}" class="form-control" id="userType" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="displayName" class="col-form-label col-sm-2 ">Display Name</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{displayName}" class="form-control" id="displayName" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="phoneNumber" class="col-form-label col-sm-2 ">Phone Number</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{phoneNumber}" class="form-control" id="phoneNumber" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-form-label col-sm-2 ">Email</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="fullAddress" class="col-form-label col-sm-2 ">Full Address</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{fullAddress}" class="form-control" id="fullAddress" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="registrationDate" class="col-form-label col-sm-2 ">Registration Date</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{registrationDate}" class="form-control" id="registrationDate" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="isApproved" class="col-form-label col-sm-2 ">Is Approved</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{isApproved}" class="form-control" id="isApproved" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="approvalDate" class="col-form-label col-sm-2 ">Approval Date</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{approvalDate}" class="form-control" id="approvalDate" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="roles" class="col-form-label col-sm-2 ">Roles</label>
+                                <div class="col-sm-5 ">
+                                    <ul class="checkbox-list" >
+                                        <li th:each="role : ${ROLES}" style="list-style: none">
+                                            <input type="checkbox" class="form-check-input"  th:value="${role.id}" th:field="*{roles}" id="roles" th:text="${role.authority}"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="/user/index" th:href="@{/user/index}" class="btn btn-default"><i class="fas fa-times"></i> Cancel</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-info"><i class="fas fa-check"></i> Update</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+
+
+</body>
+</html>

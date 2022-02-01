@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">All Users</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">System Menu</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">System Menu</a></li>
+                            <li class="breadcrumb-item active">Show</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+                <!--suppress ThymeleafVariablesResolveInspection -->
+                <div class="alert alert-info alert-dismissible" th:if="${successMgs}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <!--<h6></h6>-->
+                    <i class="icon fas fa-check"></i>
+                    <!--suppress ThymeleafVariablesResolveInspection -->
+                    <span th:text="${successMgs}"></span>
+                </div>
+
+                <!-- Horizontal Form -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Show Menu</h3>
+                        &nbsp;&nbsp;
+                        <a href="/user/index" th:href="@{/menu/index}" class=""><i class="fas fa-long-arrow-alt-left"></i> Back to List</a>
+                        &nbsp;|&nbsp;
+                        <a href="/user/create" th:href="@{/menu/create}" class=""><i class="fas fa-file-alt"></i> New Form</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="#" th:object="${object}" method="post" class="form-horizontal object-show-form">
+                        <div class="card-body">
+
+                            <input type="hidden" id="id" th:field="*{id}">
+
+                            <div class="form-group row">
+                                <label for="code" class="col-form-label col-sm-2 ">Code</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{code}" class="form-control" id="code"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="description" class="col-form-label col-sm-2 ">Description</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{description}" class="form-control" id="description"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="openUrl" class="col-form-label col-sm-2 ">URL Path</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{openUrl}" class="form-control" id="openUrl"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="iconHtml" class="col-form-label col-sm-2 ">Icon Html</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{iconHtml}" class="form-control" id="iconHtml"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sequence" class="col-form-label col-sm-2 ">Sequence</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{sequence}" class="form-control" id="sequence"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="parentMenu" class="col-form-label col-sm-2 ">Parent Menu</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{parentMenu?.code}" class="form-control" id="parentMenu"></span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="/menu/edit/" th:href="@{/menu/edit/{id}(id=${object.id})}" class="btn btn-info"><i class="far fa-edit"></i> Edit</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/menu/delete/" th:href="@{/menu/delete/{id}(id=${object.id})}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+<!-- PAGE STYLES -->
+<link rel="stylesheet" href="/static/css/application.css" th:href="@{/css/application.css}">
+
+</body>
+</html>

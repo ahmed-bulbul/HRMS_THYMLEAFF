@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">Role</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Role</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Role</a></li>
+                            <li class="breadcrumb-item active">Create</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+
+                <!-- Horizontal Form -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Role</h3>
+                        &nbsp;&nbsp;
+                        <a href="/user/index" th:href="@{/role/index}" class=""><i class="fas fa-long-arrow-alt-left"></i> Back to List</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="#" th:action="@{/role/save}" th:object="${object}" method="post" class="form-horizontal">
+                        <div class="card-body">
+
+                            <input type="hidden" id="id" th:field="*{id}">
+
+                            <div class="form-group row">
+                                <label for="authority" class="col-form-label col-sm-2 ">Authority</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{authority}" class="form-control" id="authority" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('authority')}" th:errors="*{authority}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="description" class="col-form-label col-sm-2 ">Description</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span></div>
+                            </div>
+
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="/menu/index" th:href="@{/role/index}" class="btn btn-default"><i class="fas fa-times"></i> Cancel</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-info"><i class="fas fa-check"></i> Create</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+<footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+
+
+</body>
+</html>

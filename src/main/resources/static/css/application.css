@@ -1,0 +1,62 @@
+input[type=checkbox] {
+    width: 45px;
+}
+
+.class220w {
+    width: 220px;
+    max-width: 220px;
+}
+
+table thead th {
+    white-space: nowrap;
+}
+
+form.object-show-form .form-control {
+	border: none;
+    border-radius: 0;
+	border-bottom: 1px solid lightgray;
+}
+
+
+.alert {
+    padding: .4rem 1.25rem;
+}
+
+.alert-dismissible .close, .alert-dismissible .mailbox-attachment-close {
+    padding: .4rem 1.25rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 768px) {
+    #gSearchInputTag {
+        width: 350px;
+        margin: auto !important;
+    }
+
+    #from_gSearchInputTag {
+        margin-left: auto !important;
+    }
+
+}
+
+
+table.nowrapColumnTable {
+
+}
+table.nowrapColumnTable td, th {
+    white-space: nowrap;
+    max-width: 250px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.big-checkbox {width: 30px; height: 30px;}
+
+.login-bg-img{
+    background-image: url('/images/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}

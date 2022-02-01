@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">Notification</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Notification</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Notification</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+
+
+
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+                <!--suppress ThymeleafVariablesResolveInspection -->
+                <div class="alert alert-warning alert-dismissible" th:if="${warningMsg}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <i class="icon fas fa-check"></i>
+                    <!--suppress ThymeleafVariablesResolveInspection -->
+                    <span th:text="${warningMsg}"></span>
+                </div>
+
+
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+
+                        <a th:href="@{/notification/create}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"> Add</i></a>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fas fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                                <i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-0">
+
+
+                        <!-- Customize user body content -->
+                        <div th:switch="${objectList}">
+
+                            <div class="col-md-12">
+                                <h2 th:case="null">No record found !!</h2>
+                                <div th:case="*" class="table-responsive">
+
+                                    <table class="table table-striped nowrapColumnTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Message</th>
+                                                <th>User Name</th>
+                                                <th>Order Code</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="thisObj : ${objectList}">
+                                                <td th:text="${thisObj.id}"></td>
+                                                <td th:text="${thisObj.title}"></td>
+                                                <td th:text="${thisObj.message}"></td>
+                                                <td th:text="${thisObj.userName}"></td>
+                                                <td th:text="${thisObj.orderCode}"></td>
+                                                <td th:text="${thisObj.status}"></td>
+                                                <td class="text-nowrap">
+                                                    <a th:href="@{/notification/show/{id}(id=${thisObj.id})}" class="btn btn-secondary btn-sm" style="min-width: 90px;">
+                                                        <i class="far fa-eye"></i> View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer clearfix" th:with="pagePath='/notification/index'">
+                                    <div th:include="layouts/_pagination :: defaultPagination"></div>
+                                </div>
+
+                            </div>
+                            <!-- /.card -->
+
+
+                        </div>
+                        <!-- /. Customize user body content -->
+
+                    </div>
+                </div>
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+
+
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+<!-- PAGE STYLES -->
+<link rel="stylesheet" href="/static/css/application.css" th:href="@{/css/application.css}">
+
+
+
+</body>
+</html>

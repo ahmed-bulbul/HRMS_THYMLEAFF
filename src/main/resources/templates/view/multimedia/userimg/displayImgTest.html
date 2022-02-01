@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Display Image Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Display Image</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <section class="row">
+        <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4">
+<!--            <img src="/images/dance.png" alt="Image 2" width="500px ">-->
+<!--            <img src="/static/vendor/adminlte/dist/img/AdminLTELogo.png" th:src="@{/images/Top23Company.PNG}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 bg-white" style="opacity: .8"/>-->
+<!--            <img src="/static/vendor/adminlte/dist/img/AdminLTELogo.png" th:src="@{/images/ttt.png}" alt="hhhhhhhhhhh" class="brand-image img-circle elevation-3 bg-white" style="opacity: .8"/>-->
+<!--            <img src="/static/vendor/adminlte/dist/img/AdminLTELogo.png" th:src="@{/images/userimgs/ttt.png}" alt="hhhhhhhhhhh" class="brand-image img-circle elevation-3 bg-white" style="opacity: .8"/>-->
+            <img src="/static/vendor/adminlte/dist/img/AdminLTELogo.png" th:src="@{/multimedia/profile-pic/ttt.png}" alt="hhhhhhhhhhh" class="brand-image img-circle elevation-3 bg-white" style="opacity: .8"/>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

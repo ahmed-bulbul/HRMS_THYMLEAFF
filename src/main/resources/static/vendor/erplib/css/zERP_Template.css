@@ -1,0 +1,917 @@
+
+/*floralwhite
+ghostwhite
+whitesmoke
+*/
+
+#ZERP_mainContainerWrapper {
+    position: relative;
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+#ZERP_EntityTittle {
+    font-weight: bold;
+    font-size: 20px;
+    color: #73818f;
+    color: #4f4f4f;
+    padding-left: 5px;
+    padding-bottom: 3px;
+}
+
+#ZERP_GridPanel {
+}
+
+
+/*------------------------------- Z-ERP Generic toolbar CSS start---------------------*/
+#ZERP_GenericToolbar {
+    overflow: auto;
+
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 5px;   
+    padding-left: 5px;
+    margin-bottom: 3px;
+
+}
+
+#ZERP_GenericToolbar .x-toolbar-ct {
+    width: 100%;
+}
+
+#ZERP_GenericToolbar .x-toolbar-cell {
+    white-space: nowrap;
+}
+/*------------------------------- Z-ERP Generic toolbar CSS end ----------------------*/
+#ZERP_GenericToolbar .material-icons {
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+#ZERP_GenericToolbar table td, th {
+    border: 0;
+    padding-right: 5px;
+
+}
+
+#ZERP_GenericToolbar .x-item-disabled {
+    color: grey;
+}
+#ZERP_GenericToolbar .x-item-disabled {
+    cursor: default;
+    opacity: 0.3;
+}
+
+/*------------------------------- Z-ERP Header toolbar CSS start---------------------*/
+/*header toolbar buttons*/
+#ZERP_HeaderToolbar {
+    margin-bottom: 5px;
+}
+#ZERP_HeaderToolbar table.x-toolbar-ct {
+    width: 100%;
+}
+#ZERP_HeaderToolbar table td, th {
+    border: 0;
+    padding-right: 5px;
+}
+
+#ZERP_HeaderToolbar .x-toolbar-right table td, th {
+    border: 0;
+    padding-right: 0px;
+}
+#ZERP_HeaderToolbar .material-icons {
+    vertical-align: middle;
+    font-size: 20px;
+}
+#ZERP_HeaderToolbar .x-item-disabled {
+    color: grey;
+}
+#ZERP_HeaderToolbar .x-item-disabled {
+    cursor: default;
+    opacity: 0.3;
+}
+
+#paginationContainer #divClearSearch {
+    color: dodgerblue;
+}
+#ZERP_HeaderToolbar .x-toolbar-right button.btnBackToList {
+    text-align: right;
+    color: dimgray;
+    font-size: 14px;
+}
+#ZERP_HeaderToolbar .x-toolbar-left button.btnBackToList {
+    text-align: right;
+    color: dimgray;
+    font-size: 14px;
+}
+#ZERP_HeaderToolbar .x-toolbar-left button.btnNewForm {
+    text-align: right;
+    color: dimgray;
+    font-size: 14px;
+}
+/*------------------------------- Z-ERP Generic toolbar CSS end ----------------------*/
+
+
+/*------------------------------- Z-ERP Custom toolbar CSS start---------------------*/
+#ZERP_CustomToolbar table td {
+    border: none;
+}
+#ZERP_CustomToolbar button {
+    font-size: 12px;
+}
+/*------------------------------- Z-ERP Custom toolbar CSS end ----------------------*/
+
+
+
+
+
+
+/*------------------------------- Z-ERP Pagination CSS Start---------------------*/
+#ERP_pgnGridPanel {
+    overflow: auto;
+    font-size: 12px;
+
+    background: white;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    height: 30px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#ERP_pgnGridPanel #paginationContainer {
+    display: inline-flex;
+    display: block;
+    overflow: auto;
+}
+#ERP_pgnGridPanel #paginationContainer #divClearSearch {
+    white-space: nowrap;
+}
+#ERP_pgnGridPanel #paginationContainer #divRowCounter {
+    white-space: nowrap;
+    color: #73818f;
+}
+#ERP_pgnGridPanel #paginationContainer #divRowLimit {
+    white-space: nowrap;
+    color: #73818f;
+}
+#ERP_pgnGridPanel #paginationContainer #divEQB {
+    white-space: nowrap;
+    color: #73818f;
+}
+
+#ERP_pgnGridPanel #paginationContainer #divEQB button {
+    color: #73818f;
+}
+/*------------------------------- Z-ERP Pagination CSS End---------------------*/
+
+
+
+#ZERP_GridPanel th, td {
+    padding: 0;
+}
+
+
+#listTableSearchForm .sortByIcon {
+    position: absolute;
+    right: 2px;
+}
+
+#listTableSearchForm .searchFieldLabel i {
+    color: darkgrey;
+}
+
+
+
+#ZERP_TbarListFromWrapper {
+    /*border: 1px solid;*/
+    border-color: lightskyblue;
+    /*overflow: auto;*/
+}
+
+
+#ZERP_listFormGridPanel {
+    position: relative;
+    padding-bottom: 10px;
+    background: white;
+    border-radius: 3px;
+}
+
+
+
+#ZERP_listFormGridPanel_scroller {
+    position: relative;
+    /*padding-bottom: 20px;*/
+} 
+
+
+#ZERP_listGridPanelFull_scrollerWrapper {
+    position: relative;
+    border-left: 1px solid #dee2e6!important;
+    /*border-right: 1px solid #dee2e6!important;*/
+}
+
+#ZERP_listGridPanelFull_scroller {
+    position: relative;
+    display: block;
+}
+
+
+/*//////////////////////// List Header Control ////////////////////////////////////*/
+#ZERP_listGridPanel_headerWrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #eee;
+    background: #f1f1f1;
+
+    /*box-shadow: 0 -2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);*/
+    border: 0;
+}
+#ZERP_listGridPanel_header {
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+#ZERP_listGridPanel_headerFullWidth {
+    position: absolute;
+}
+/*/////////////////////// List Header Control End //////////////////////////////////*/
+
+/*//////////////////////// List Control ////////////////////////////////////*/
+#ZERP_listGridPanel_scrollerWrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#ZERP_listGridPanel_scroller {
+    overflow: auto;
+    position: relative;
+}
+#ZERP_listGridPanel_scrollerFullWidth {
+}
+/*/////////////////////// List Control End //////////////////////////////////*/
+
+
+
+#listTableSearchForm tr#labelForm th div {
+    white-space: nowrap;
+    padding-right: 5px;
+    overflow: hidden;
+}
+
+
+
+/*------------------------------- Z-ERP Form CSS Start---------------------*/
+#ZERP_formGridPanel {
+    margin-bottom: 10px;
+    background: white;
+}
+
+
+#ZERPGenForm {
+    border: 1px solid grey;
+    /*max-width: 800px;*/
+    padding: 5px;
+    overflow: auto;
+    /*margin-bottom: 25px;*/
+    /*overflow: hidden;*/
+    /*display: inline-block;*/
+    /*  webkit-box-shadow: 8px 12px 68px 2px rgba(0,0,0,0.77);
+    -moz-box-shadow: 8px 12px 68px 2px rgba(0,0,0,0.77);
+    box-shadow: 8px 12px 68px 2px rgba(0,0,0,0.77);*/
+
+    webkit-box-shadow: 2px 3px 7px 1px rgba(0,0,0,0.33);
+    -moz-box-shadow: 2px 3px 7px 1px rgba(0,0,0,0.33);
+    box-shadow: 2px 3px 7px 1px rgba(0,0,0,0.33); 
+    border: 1px solid #BFBFBF; 
+}
+
+#formWrapper {
+	border: 1px solid grey;
+    /*max-width: 800px;*/
+    padding: 5px;
+    overflow: auto;
+    /*margin-bottom: 25px;*/
+    /*overflow: hidden;*/
+    /*display: inline-block;*/
+    /*  webkit-box-shadow: 8px 12px 68px 2px rgba(0,0,0,0.77);
+    -moz-box-shadow: 8px 12px 68px 2px rgba(0,0,0,0.77);
+    box-shadow: 8px 12px 68px 2px rgba(0,0,0,0.77);*/
+
+    webkit-box-shadow: 2px 3px 7px 1px rgba(0,0,0,0.33);
+    -moz-box-shadow: 2px 3px 7px 1px rgba(0,0,0,0.33);
+    box-shadow: 2px 3px 7px 1px rgba(0,0,0,0.33); 
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.33); 
+    border: 1px solid #BFBFBF; 
+}
+
+
+#ZERP_listGridPanel_header #listTableSearchForm input{
+    height: 25px;
+    font-size: 12px
+}
+
+#ZERP_listGridPanel_header #listTableSearchForm select {
+    font-size: 12px;
+}
+
+#formERP legend {
+    width: auto;
+}
+
+#formERP .checkboxClass {
+    padding-top: 20px !important;
+}
+
+#formERP .checkboxClass label {
+    display: inline-block !important;
+}
+
+/*------------------------------- Z-ERP Form CSS End---------------------*/
+
+
+
+
+.ZERP_APIErrorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+
+#ZERP_HeaderEntryCt {
+    background: white;
+    padding: 5px;
+    border-radius: 3px;
+    display: none;
+    overflow: auto;    
+}
+#ZERP_HeaderEntryCt {
+/*    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    border: 0;*/
+}
+#ZERP_HeaderEntryCt legend {
+    width: auto;
+}
+#ZERP_HeaderEntryCt fieldset legend {
+    font-size: 13px;
+    border-bottom: none;
+}
+
+#ZERP_FooterEntryCt {
+    background: white;
+    padding: 5px;
+    border-radius: 3px;
+    overflow: auto;
+    display: none;
+    margin-top: 16px;
+}
+#ZERP_FooterEntryCt legend {
+    width: auto;
+    border-bottom: none;
+}
+#ZERP_FooterEntryCt fieldset legend {
+    font-size: 13px;
+}
+
+#listTable tfoot {
+    font-size: 13px;
+    background: #C5D4E8;
+}
+
+#listTable tfoot tr td {
+    padding-left: 5px;
+}
+
+#ZERP_listGridPanel {
+    background: white;
+}
+
+/*------------------------------- Z-ERP Table Header CSS Start ----------------------*/
+#ZERP_clearAbsoluteLTH {
+    /*background-color : #F8F8FF;*/
+    
+    /*background: linear-gradient(white, #F8F8FF);*/
+    /*background: linear-gradient(#f9f9f9, #f9f9f9, #f9f9f9);*/
+    background-color : #f1f1f1; 
+}
+
+#listTableSearchForm thead {
+    /*background:#F8F8FF;*/
+}
+/*------------------------------- Z-ERP Table Header CSS End  ----------------------*/
+
+
+/*------------------------------- Z-ERP FatherData CSS Start  ----------------------*/
+#ZERP_FatherDataCt {
+    font-size: 12px;
+}
+
+#ZERP_FatherDataCt legend {
+    width: unset;
+    width: auto;
+    font-size: 13px;
+}
+
+#ZERP_FatherDataCt .vHdrFieldGroup {
+    /*box-shadow: 0px 0px 2px -1px;*/
+    /*box-shadow: 3px 0 5px -5px #333;*/
+    /*max-height: 50px;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border-left: 0px;
+    border-right: 1px solid gainsboro;
+
+    /*https://css-tricks.com/examples/GradientBorder/*/
+    border-right-width: 1px;
+    border-style: solid gainsboro;
+    -webkit-border-image: 
+    -webkit-gradient(linear, 0 0, 0 100%, from(gainsboro), to(rgba(0, 0, 0, 0))) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(gainsboro, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(gainsboro, rgba(0, 0, 0, 0)) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient(gainsboro, rgba(0, 0, 0, 0)) 1 100%;
+    border-image:
+      linear-gradient(to bottom, gainsboro, rgba(0, 0, 0, 0)) 1 100%;
+
+}
+
+
+#ZERP_FatherDataCt .fieldlbl {
+    font-weight: 500; 
+    padding-left: 5px;
+    padding-right: 25px;
+}
+
+#ZERP_FatherDataCt .fieldtxt {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: white;
+
+    padding-right: 15px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+
+    min-height: 32.6px;
+
+    /*padding-right: 15px; padding-left: 5px; padding-bottom:20px;*/
+}
+/*------------------------------- Z-ERP FatherData CSS End  ----------------------*/
+
+
+
+
+
+
+
+/*------------------------------- Z-ERP MDB-Card-Shadow CSS Start ----------------------*/
+.mdb-card-1 {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-shadow-1 {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    border: 0;
+}
+
+
+.card-shadow-2-z-depth-1 {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;
+}
+
+
+--google-grey-800-rgb: 60, 64, 67;
+--google-grey-800: rgb(var(--google-grey-800-rgb));
+--cr-card-elevation_-_box-shadow: rgba(var(--google-grey-800-rgb), .3) 0 1px 2px 0, rgba(var(--google-grey-800-rgb), .15) 0 1px 3px 1px;
+/*------------------------------- Z-ERP MDB-Card-Shadow CSS End  -----------------------*/
+
+
+.dark-grey-text {
+    color: #4f4f4f;
+}
+
+
+#divRefreshList a {
+    font-weight: bold;
+    color: blue;
+    color: gray;
+    color: darkgray;
+    font-size: 20px;
+    font-size: 12px;
+}
+
+#divFullScreenList i {
+    font-size: 22px;
+    color: darkgray;
+}
+
+
+
+/*------------------------------- Z-ERP Bootstrap Customization CSS Start  -----------------------*/
+/*.btn-sm {
+    height: 32.500px;
+}*/
+/*------------------------------- Z-ERP Bootstrap Customization CSS End  -----------------------*/
+
+
+#ZERP_FatherDataCt .ZERP_FatherDataCt-first {
+    background: whitesmoke;
+    background: white;
+    border-radius: 5px;
+}
+
+#ZERP_FatherDataCt .ZERP_FatherDataCt-first .x-panel-bwrap {
+    background: ghostwhite;
+}
+
+#ZERP_FatherDataCt .ZERP_FatherDataCt-first fieldset {
+    padding-top: 20px !important;
+}
+
+#ZERP_FatherDataCt .ZERP_FatherDataCt-first fieldset legend {
+    margin-bottom: 0px;
+    position: absolute;
+    right: 11px;
+    margin-top: -21px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+padding-left: 10px;
+    padding-right: 10px;
+    background: lightgrey;
+    background: ghostwhite;
+    border-radius: 2px;
+
+
+}
+
+#ZERP_EntityTittle {
+    background: lightgray;
+    background: white;
+    background: whitesmoke;
+    border-radius: 5px;
+}
+
+
+#ZERP_GenericToolbar {
+    border-radius: 3px;
+}
+
+#ERP_pgnGridPanel {
+    border-radius: 3px;
+}
+
+#ZERP_EntityCaption {
+    background: whitesmoke;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+#ZERP_HeaderToolbar {
+    /*background: #E5E8E8;*/
+    /*background: whitesmoke;*/
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.divLineInformation {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#ZERP_GenericToolbar .x-item-disabled button {
+    pointer-events: none;
+}
+
+#ZERP_HeaderToolbar .x-item-disabled button {
+    pointer-events: none;
+}
+
+
+
+/*-------------------------------------------------*/
+div.formGroup div {
+    position: relative;
+    display: inline-block;
+}
+
+.btnDropdownToggle {
+    color: blue;
+    color: darkgrey;
+    background: transparent;
+    border: none;
+    position: absolute;
+    /*right: 58px;*/
+    /*right: 30px;*/
+    right: 0px;
+    top: 1px;
+    cursor: pointer;
+    height: 28px;
+}
+
+.btnDropdownToggle:hover {
+    background-color: bisque;
+}
+/*-------------------------------------------*/
+
+
+#ZERP_HeaderToolbar button {
+    /*-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);*/
+}
+
+
+#btnSidebarDisplayBigScreen {
+    color: darkgray;
+    background: transparent;
+}
+
+#formERP legend {
+    margin-bottom: 0px;
+}
+
+#formERP .checkboxClass {
+    margin-right: 30px;
+}
+
+#formERP .checkboxClass label {
+    padding-right: 5px;
+}
+
+
+#ZERP_pgnGridPanelWrapper {
+    background-color: #eee;
+    padding-bottom: 1px;
+}
+
+
+#ERP_pgnGridPanel .ListHelperIcon {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+
+/*.ZERP_EntryCt .formGroup span.SpanDecode {
+    padding-left: 1px;
+}
+*/
+
+.divLineInformation{
+    font-size: 13px;
+}
+
+.zerp-listitem-element .description {
+    font-size: 12px;
+}
+
+.formGroup span.MInServer {
+    color: orange;
+    font-weight: bold;
+}
+.formGroup span.MInUI {
+    color: red;
+    font-weight: bold;
+}
+
+#ZERP_HeaderToolbar {
+    margin-top: 5px;
+}
+
+
+#ZERP_HeaderToolbar button.btn-outline-primary {
+    background-color: white;
+}
+
+#ZERP_HeaderToolbar button.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+#formERP .dropdownlistArrowZERPComboBox {
+    height: 22px;
+    background: #F8F8F8;
+}
+
+.ZERP_HeaderEntryCt .dropdownlistArrowZERPComboBox {
+    height: 28px;
+}
+
+
+/*Generic header toolbar buttons*/
+#ZERP_HeaderToolbar .btnSaveDocument {
+    font-size: 16px;
+}
+
+#ZERP_HeaderToolbar .btnEditDocument {
+    font-size: 16px;
+}
+#ZERP_HeaderToolbar .btnDeleteDocument {
+    font-size: 16px;
+}
+#ZERP_HeaderToolbar .btnPrint {
+    font-size: 16px;
+}
+#ZERP_HeaderToolbar .btnCloseDocument {
+    font-size: 16px;
+}
+#ZERP_HeaderToolbar .btnApproveDocument {
+    font-size: 16px;
+}
+#ZERP_HeaderToolbar .btnOtherActions {
+    font-size: 15px;
+}
+#ZERP_HeaderToolbar .AnchorTagLike {
+    font-size: 16px;
+    border: none;
+    color: blue;
+    cursor: pointer;
+}
+
+
+.ZERP_HeaderEntryCt legend {
+    margin-bottom: 5px; 
+}
+
+
+#ZERP_FooterEntryCt .footerButtonBar {
+    margin-bottom: 0px;
+    /*margin-top: 10px;*/
+}
+
+#ZERP_UserAlertCt {
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+#ZERP_UserAlertCt h1 {
+    font-size: smaller;
+}
+#ZERP_UserAlertCt h2 {
+    font-size: smaller;
+}
+#ZERP_UserAlertCt dt, #ZERP_UserAlertCt dd {
+    font-size: smaller;
+}
+
+#ZERP_UserAlertCt .close {
+    color: red;
+    padding-right: 3px;
+}
+
+#ZERP_pgnGridPanelWrapper #divRowLimit select {
+    border: 1px solid whitesmoke;
+}
+
+#ZERP_pgnGridPanelWrapper #divClearSearch a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+#ZERP_pgnGridPanelWrapper #divClearSearch a:hover {
+    color: #0056b3;
+}
+
+
+#listTable .inline-action-toolbar button {
+    border: 1px solid gainsboro;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////*/
+/* Colect from AdminLTE Template @ Al-Mamun @ 2019-09-26 */
+.wrapper {
+    position: relative;
+/*    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;*/
+    /*// Avove original code*/
+
+    /*change */
+    /*issue height scroll @Al-Mamu 2020-01-12*/
+    /*height: inherit;*/
+    /*overflow: hidden;*/
+    /*overflow-y: auto;*/
+}
+
+html, body {
+    height: auto;
+    min-height: 100%;
+}
+
+html, body {
+    height: 100%;
+}
+
+/*// Main div*/
+.content-wrapper {
+/*    min-height: calc(100vh - 101px);
+    background-color: #ecf0f5;
+    z-index: 800;  */
+}
+/*////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////*/
+
+
+
+
+
+#listTableSearchForm .btnDropdownToggle {
+    font-size: 12px;
+}
+
+#listTableSearchForm #searchForm  input.odDropdownRefObj_List {
+    padding-right: 25px !important;
+    text-overflow: ellipsis;
+}
+
+
+.ZERP_EntryCt .tabWithoutBox {
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+
+/*Original bootstrap CSS customize*/
+.custom-file-label {
+    font-size: small !important;
+}
+
+
+#listTable tr td input.OnDmdDropdown2 {
+    padding-right: 20px !important;
+}
+
+.ZERP_HeaderEntryCt .OnDmdDropdown2 {
+    padding-right: 25px !important;
+}
+#formERP .OnDmdDropdown2 {
+    padding-right: 25px !important;
+}
+
+
+.ReferenceEntityAddonActionButton {
+    background: white;
+}
+
+
+
+/*Previous Month Closing Entry*/
+#fieldset_boxPMCEBegin {
+    border-color: red !important;
+}
+
+#fieldset_boxPMCEBegin legend {
+    color: red;
+    font-weight: 800;
+}
+
+
+#listTable .focusableLineTr {
+    /*background-color: #dffafd !important;*/
+    /*background-color: #33FFD8 !important;*/
+    /*background-color: #88F7E5 !important;*/
+    /*background-color: #A4EFEE !important;*/
+    background-color: #B5F9F8 !important;
+}
+
+#listTable .smp-number-val {
+    text-align: right;
+    padding-right: 5px !important;
+}
+
+
+#listTable tfoot .smpNumber {
+    text-align: right;
+    padding-right: 5px !important;
+}
+
+
+.itemsearchLoupe {
+    cursor: pointer;
+}

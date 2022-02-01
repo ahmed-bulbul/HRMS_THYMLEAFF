@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ThikThak | User Profile</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/vendor/adminlte/plugins/fontawesome-free/css/all.min.css}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/vendor/adminlte/added/ionicons.min.css" th:href="@{/vendor/adminlte/added/ionicons.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/vendor/adminlte/dist/css/adminlte.min.css" th:href="@{/vendor/adminlte/dist/css/adminlte.min.css}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper" th:inline="text">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Profile</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#" th:href="@{/dashboard}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/techuser/index" th:href="@{/techuser/index}">Technician List</a></li>
+                            <li class="breadcrumb-item active">Profile</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+
+                                    <!--<img class="profile-user-img img-fluid img-circle"
+                                         src="/static/img/user-profile.jpg" th:src="@{/img/user-profile.jpg}"
+                                         alt="User profile picture">-->
+                                    <img th:if="${user.profilePicPath2 != null}"
+                                         class="profile-user-img img-fluid img-circle"
+                                         src="/static/img/user-profile.jpg"
+                                         th:src="@{${user.profilePicPath2 + '?t=' + #temporals.formatISO(timestamp)}}"
+                                         alt="User profile picture">
+                                    <img th:unless="${user.profilePicPath2 != null}"
+                                         class="profile-user-img img-fluid img-circle"
+                                         src="/static/img/user-profile.jpg" th:src="@{/img/user-profile.jpg}"
+                                         alt="User profile picture">
+
+                                </div>
+
+                                <h3 class="profile-username text-center" th:text="${user.displayName}">Nina Mcintire</h3>
+
+                                <p class="text-muted text-center" th:text="${user.profession} ?: 'User Profession' ">Software Engineer</p>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <b>Total Order</b> <a class="float-right">[[${totalOrderRcv}]]</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Complete</b> <a class="float-right">[[${totalOrderCmp}]]</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Pending</b> <a class="float-right">[[${totalOrderPnd}]]</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Com Charge (Due)</b> <a class="float-right">[[${comChargeAmt}]]</a>
+                                    </li>
+                                </ul>
+
+
+                                <div class="mt-2">
+                                    <h5>Today</h5>
+                                    <ul class="list-group list-group-unbordered mb-3">
+                                        <li class="list-group-item">
+<!--                                            <b>Today</b> <br>-->
+                                            <span style="display: inline;padding-left: 50px;"><b>Order</b> <a class="float-right">[[${tdTotalOrderRcv}]]</a></span> <br>
+                                            <span style="display: inline;padding-left: 50px;"><b>Complete</b> <a class="float-right">[[${tdTotalOrderCmp}]]</a></span> <br>
+                                            <span style="display: inline;padding-left: 50px;"><b>Pending</b> <a class="float-right">[[${tdTotalOrderPnd}]]</a></span> <br>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <a href="#" class="btn btn-outline-primary btn-block" th:text="${user.enabled == true}? 'Active' : 'In-Active' "><b>Status: Active</b></a>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header p-2">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Basic</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#activity" data-toggle="tab">Activity</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#profilePic" data-toggle="tab">Picture</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#systemLog" data-toggle="tab">System Info</a></li>
+                                </ul>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="tab-content">
+
+
+                                    <!-- tab-pane -->
+                                    <div class="active tab-pane" id="settings">
+
+                                        <form action="#" th:action="@{/user/profile/update}" method="post" class="form-horizontal">
+
+                                            <input type="hidden" id="id" th:field="${user.id}">
+
+                                            <div class="form-group row">
+                                                <label for="displayName" class="col-sm-2 col-form-label">Display Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" th:field="${user.displayName}" class="form-control" id="displayName" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" th:field="${user.phoneNumber}" class="form-control" id="phoneNumber" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" th:field="${user.email}" class="form-control" id="email" placeholder="" />
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group row">
+                                                <label for="enabled" class="col-sm-2 col-form-label">Active</label>
+                                                <div class="col-sm-10">
+                                                    <input type="checkbox" name="enabled" th:checked="${user.enabled}" id="enabled" th:value="${user.enabled}" onclick="this.value = this.checked" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <!--<div class="form-group row">
+                                                <div class="offset-sm-2 col-sm-10">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+
+                                            <div class="form-group row mt-5">
+                                                <div class="offset-sm-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i> Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.tab-pane -->
+
+
+                                    <!-- tab-pane -->
+                                    <div class="tab-pane" id="timeline">
+                                        <!-- The timeline -->
+                                        <div class="timeline">
+
+                                        </div>
+                                    </div>
+                                    <!-- /.tab-pane -->
+
+
+                                    <!-- tab-pane -->
+                                    <div class="tab-pane" id="activity">
+                                        <!-- Post -->
+                                        <div class="post">
+
+                                        </div>
+                                        <!-- /.post -->
+
+                                    </div>
+                                    <!-- /.tab-pane -->
+
+                                    <!-- tab-pane -->
+                                    <div class="tab-pane" id="profilePic">
+                                        <!-- Post -->
+                                        <div class="post">
+
+                                        </div>
+                                        <!-- /.post -->
+
+                                    </div>
+                                    <!-- /.tab-pane -->
+
+                                    <!-- tab-pane -->
+                                    <div class="tab-pane" id="systemLog">
+                                        <!-- Post -->
+                                        <div class="post">
+
+                                        </div>
+                                        <!-- /.post -->
+
+                                    </div>
+                                    <!-- /.tab-pane -->
+
+
+
+
+                                </div>
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script type="text/javascript" src="/static/vendor/adminlte/plugins/jquery/jquery.min.js" th:src="@{/vendor/adminlte/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script type="text/javascript" src="/static/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script type="text/javascript" src="/static/vendor/adminlte/dist/js/adminlte.js" th:src="@{/vendor/adminlte/dist/js/adminlte.js}"></script>
+<!-- AdminLTE for demo purposes -->
+<script type="text/javascript" src="/static/vendor/adminlte/dist/js/demo.js" th:src="@{/vendor/adminlte/dist/js/demo.js}"></script>
+
+<!-- Z-ERPLIB SCRIPTS -->
+<script type="text/javascript" src="/static/vendor/erplib/js/JsClientAPI.js" th:src="@{/vendor/erplib/js/JsClientAPI.js}"></script>
+
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+<!-- PAGE STYLES -->
+<link rel="stylesheet" href="/static/css/application.css" th:href="@{/css/application.css}">
+<!-- Others: Common SCRIPTS -->
+<script type="text/javascript" src="/static/js/leftsideMenuCache.js" th:src="@{/js/leftsideMenuCache.js}"></script>
+
+
+</body>
+</html>

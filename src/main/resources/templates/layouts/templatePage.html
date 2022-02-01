@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/layouts/_head :: head">
+    <title>Tittle</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Admin Panel</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Admin Panel</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+
+                <div th:text="${T(com.thikthak.app.util.TestUtils).toUpperCase('hello world 1789')}"></div>
+                <div th:with="name=${T(com.thikthak.app.util.TestUtils).toUpperCase2('hello world 15')}">
+
+                    <div class="outside-tag">
+                        <!--suppress HtmlUnknownTag -->
+                        <!--suppress CheckTagEmptyBody -->
+                        <th:block th:utext="${name}"></th:block>
+                        <!--suppress HtmlUnknownTag -->
+                        <!--suppress CheckTagEmptyBody -->
+                        <th:block th:utext="${T(com.thikthak.app.util.TestUtils).toUpperCase2('hello world 123')}"></th:block>
+                    </div>
+                    <!--                    <th:block th:include="fragments/header :: header"></th:block>-->
+                    <!--                    <th:block th:include="/fragments/header :: header"></th:block>-->
+                </div>
+
+
+                <div th:include="layouts/_templateBody :: templateBody"></div>
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/vendor/adminlte/dist/js/pages/dashboard2.js" th:src="@{vendor/adminlte/dist/js/pages/dashboard2.js}"></script>
+
+
+</body>
+</html>

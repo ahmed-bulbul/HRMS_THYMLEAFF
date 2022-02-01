@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment, HtmlUnknownTag, HtmlUnknownTag -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">Profile Picture</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Profile Picture</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Profile Picture</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+
+
+
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+
+                <!--                <h1>Uploading User Profile Picture</h1>-->
+
+                <form th:object="${userInst}" action="#" th:action="@{/uploadProfilePic}" method="post" enctype="multipart/form-data">
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <input type="hidden" id="userId"  name="userId" th:value="*{id}">
+                            <input type="hidden" id="username7" th:field="*{username}">
+                            <div class="form-group row">
+                                <label for="username" class="col-form-label col-sm-2 ">Username</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{username}" class="form-control" id="username"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="displayName" class="col-form-label col-sm-2 ">Display Name</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{displayName}" class="form-control" id="displayName"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="phoneNumber" class="col-form-label col-sm-2 ">Phone Number</label>
+                                <div class="col-sm-5">
+                                    <span th:utext="*{phoneNumber}" class="form-control" id="phoneNumber"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="customFile" class="col-form-label col-sm-2 ">Picture</label>
+                                <div class="col-sm-5">
+                                    <div class="custom-file">
+                                        <input type="file" name="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file...</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="upload" class="col-form-label col-sm-2 "></label>
+                                <div class="col-sm-5">
+                                    <button class="btn btn-primary w-100" type="submit" id="upload">Upload</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+
+
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+<!--Need custom scripts-->
+<script type="text/javascript" src="/static/vendor/adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js" th:src="@{/vendor/adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js}"></script>
+
+
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+<!-- PAGE STYLES -->
+<link rel="stylesheet" href="/static/css/application.css" th:href="@{/css/application.css}">
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+</script>
+
+</body>
+</html>

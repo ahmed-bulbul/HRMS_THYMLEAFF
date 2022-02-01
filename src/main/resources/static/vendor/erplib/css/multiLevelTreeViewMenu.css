@@ -1,0 +1,190 @@
+/*
+src:
+https://www.w3schools.com/howto/howto_js_treeview.asp
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_treeview
+https://bootsnipp.com/snippets/prnvG 
+*/
+
+.jquery-accordion-menu {
+    min-width: 260px;
+    max-width: 260px;
+
+    min-width: 220px;
+    max-width: 220px;
+
+    float: left;
+    position: relative;
+    /*box-shadow: 0 20px 50px #333;*/
+
+    font-family: sans-serif;
+}
+
+.jquery-accordion-menu, .jquery-accordion-menu * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    outline: 0;
+}
+
+.jquery-accordion-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jquery-accordion-menu ul li {
+    width: 100%;
+    display: block;
+    float: left;
+    position: relative;
+
+    /*border-bottom: 1px solid #dee2e6;*/
+}
+
+.jquery-accordion-menu>ul>li {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.jquery-accordion-menu>ul>li>a {
+/*    border-bottom: solid 1px #3b424d;
+    border-bottom: 1px solid #dee2e6;*/
+    color: dimgray;
+    color: #2196F3;
+    font-weight: 600;
+}
+
+
+.jquery-accordion-menu ul li a {
+    width: 100%;
+    padding: 14px 22px;
+    padding: 14px 12px;
+    float: left;
+    text-decoration: none;
+    /*color: #f0f0f0;*/
+    /*background: #414956;*/
+    font-size: 13px;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    -o-transition: color .2s linear, background .2s linear;
+    -moz-transition: color .2s linear, background .2s linear;
+    -webkit-transition: color .2s linear, background .2s linear;
+    transition: color .2s linear, background .2s linear;
+}
+
+.jquery-accordion-menu ul li a i {
+    width: 34px;
+    float: left;
+    line-height: 18px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.jquery-accordion-menu .submenu-indicator {
+    float: right;
+    right: 22px;
+    position: absolute;
+    line-height: 19px;
+    font-size: 20px;
+    -o-transition: transform .3s linear;
+    -moz-transition: transform .3s linear;
+    -webkit-transition: transform .3s linear;
+    -ms-transition: transform .3s linear;
+}
+
+
+.jquery-accordion-menu>ul>li.active>a, .jquery-accordion-menu>ul>li:hover>a {
+    color: #fff;
+    background: #3b424d;
+    background: silver;
+}
+
+
+.jquery-accordion-menu ul ul.submenu li a {
+    width: 100%;
+    float: left;
+    font-size: 11px;
+    /*background: #383838;*/
+    border-top: none;
+    position: relative;
+    border-left: solid 6px transparent;
+    -o-transition: border .2s linear;
+    -moz-transition: border .2s linear;
+    -webkit-transition: border .2s linear;
+    transition: border .2s linear;
+
+    color: #15428B;
+    font-weight: 600;
+}
+
+.jquery-accordion-menu ul ul.submenu>li>a {
+    padding-left: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.jquery-accordion-menu ul ul.submenu>li>a>i {
+    font-size: 13px;
+}
+
+.jquery-accordion-menu ul ul.submenu>li>ul.submenu>li>a {
+    padding-left: 45px
+}
+
+.jquery-accordion-menu ul ul.submenu>li>ul.submenu>li>ul.submenu>li>a {
+    padding-left: 60px
+}
+
+
+.jquery-accordion-menu>ul>li>ul>li:hover {
+    background: aliceblue;
+    color: black;
+    color: darkslateblue;
+    font-weight: 600;
+}
+
+
+
+
+/*-------------------------------------------------------------------- */
+.jquery-accordion-menu ul, #treeViewMenu {
+  list-style-type: none;
+}
+
+.jquery-accordion-menu #treeViewMenu {
+  margin: 0;
+  padding: 0;
+}
+
+#treeViewMenu .caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+#treeViewMenu .caret::before {
+  /*content: "\25B6";*/
+  content: "\00BB";
+  /*font-size: smaller;*/
+  font-size: larger;
+  /*color: black;*/
+  color: lightgrey;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+#treeViewMenu .caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+#treeViewMenu .nested {
+  display: none;
+}
+
+#treeViewMenu .active {
+  display: block;
+}

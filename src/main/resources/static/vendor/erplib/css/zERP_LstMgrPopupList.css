@@ -1,0 +1,158 @@
+/*List Table Design CSS Start =============================*/
+
+/*head table*/
+#listTableSearchForm_PopList thead th{
+    background-color : #f1f1f1; /*Datatables*/
+}
+#listTableSearchForm_PopList th {
+    font-size: 9pt;
+    font-weight: normal;
+    color: #555555;
+}
+#listTableSearchForm_PopList tr:nth-child(even) {
+    background-color: #f9f9f9; /*Datatables*/
+}
+#listTableSearchForm_PopList th,
+#listTableSearchForm_PopList td {
+    border: 1px solid #ddd;
+    /*padding-left  : 3px;
+    padding-right : 3px;
+    text-align    : left;
+    vertical-align: top;*/
+}
+
+#listTableSearchForm tr td .searchFieldLabel {
+    padding: 2px 5px;
+}
+
+/*line table*/
+#listTable_PopList thead th{
+    background-color : #f1f1f1; /*Datatables*/
+}
+#listTable_PopList th {
+    font-size: 9pt;
+    font-weight: normal;
+    color: #555555;
+}
+#listTable_PopList tr:nth-child(even) {
+    background-color: #f9f9f9; /*Datatables*/
+}
+#listTable_PopList th,
+#listTable_PopList td {
+    border: 1px solid #ddd;
+    text-align     : left;
+    vertical-align : top;
+}
+#listTable_PopList>tbody>tr>td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#listTable_PopList>tbody>tr>td div{
+	white-space: nowrap;
+}
+/*List Table Design CSS End*/   
+
+
+
+
+
+/*------------- custom css --------------*/
+#listerp {
+    /*padding-top: 10px;*/
+}
+
+.erplistExpandDiv {
+    border: 1px solid gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*max-width: 450px;*/
+    padding-bottom: 30px;
+}
+.dateFieldExpand {
+    width: 350px;
+}
+.dateFieldExpand input {
+    width: 120px !important;
+}
+
+
+.dateFieldExpand:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    width: 0;
+    height: 0;
+/*    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #ffffff;*/
+    border-top: 10px solid gray;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.customSearchExpand:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid gray;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+
+
+/*----------Check box css ----------*/
+input[type=checkbox]{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 5px;
+  margin: 5px; 
+}
+
+
+/*------------General Color Class/Notification Color Start------------- */
+.strong {
+ font-weight: bold;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}
+.yellow {
+    color: yellow;
+}
+/*------------General Color Class/Notification Color End--------------- */
+
+
+#ZERP_pgnGridPanel_PopList {
+    font-size: 12px;
+}
+.ALx-modal-content .modal-body {
+    padding-top: 5px;
+}
+
+#listTable_PopList td div{
+    font-size: 13px;
+}

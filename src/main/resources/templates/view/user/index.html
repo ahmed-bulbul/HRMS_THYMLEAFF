@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">All Users</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Users</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">User</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+                <!--suppress ThymeleafVariablesResolveInspection -->
+                <div class="alert alert-warning alert-dismissible" th:if="${warningMgs}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <i class="icon fas fa-check"></i>
+                    <!--suppress ThymeleafVariablesResolveInspection -->
+                    <span th:text="${warningMgs}"></span>
+                </div>
+
+
+
+                <!-- --------------Search box start ---------------------------------------------------------------- -->
+
+                <div class="card ">
+                    <div class="card-body">
+
+                        <form>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="username">User Name</label>
+                                    <input type="text" name="username" th:value="${param.username}" id="username" class="form-control form-control-sm">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="phoneNumber">Phone Number</label>
+                                    <input type="text" name="phoneNumber" th:value="${param.phoneNumber}" id="phoneNumber" class="form-control form-control-sm">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="expertiseArea">Expertise Area</label>
+                                    <input type="text" name="expertiseArea" th:value="${param.expertiseArea}" id="expertiseArea" class="form-control form-control-sm">
+                                </div>
+
+                                <div class="form-group col-md-3" style="margin-top: 32px;">
+                                    <button type="submit" class="form-control form-control-sm btn-warning" id="btnSubmit" style="display: inline-block;color: white;;width: 50%;"><i class="fas fa-search"></i> Submit</button>
+                                    <a href="" th:href="@{/user/index}" class="form-control form-control-sm btn-default" style="display: inline-block;width: 40%; text-align: center">Reset</a>
+                                </div>
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+                <!-- --------------Search box end ------------------------------------------------------------------ -->
+
+
+                <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+
+                    <a th:href="@{/user/create}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"> Add User</i></a>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+
+
+                <!-- Customize user body content -->
+                <div th:switch="${users}">
+
+                    <div class="col-md-12">
+                        <h2 th:case="null">No record found !!</h2>
+                        <div th:case="*" class="table-responsive">
+
+                            <table class="table table-striped nowrapColumnTable">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Display Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Roles</th>
+                                    <th>Full Address</th>
+                                    <th>Registration Date</th>
+                                    <th colspan="">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="user : ${users}">
+                                    <td th:text="${user.id}"></td>
+                                    <td th:text="${user.username}"></td>
+                                    <td th:text="${user.displayName}"></td>
+                                    <td th:text="${user.phoneNumber}"></td>
+                                    <td th:text="${user.email}"></td>
+                                    <td>
+                                        <p th:each="roles: ${user.getRoles()}">
+                                            <span th:text="${roles.getAuthority()}"></span>
+                                        </p>
+
+                                    </td>
+                                    <td th:text="${user.fullAddress}"></td>
+                                    <td th:text="${user.registrationDate}" class="text-nowrap"></td>
+                                    <td class="text-nowrap">
+                                        <a th:href="@{/user/show/{id}(id=${user.id})}" class="btn btn-outline-secondary btn-sm">
+                                            <i class="far fa-eye"></i> View
+                                        </a>
+                                        <a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-outline-primary btn-sm">
+                                            <i class="far fa-edit"></i> Edit
+                                        </a>
+                                        <a th:href="@{/user/delete/{id}(id=${user.id})}"  th:onclick="'javascript:deleteItem(' + ${user.id} + ');'" class="btn btn-outline-danger btn-sm">
+                                            <i class="far fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                    <!--<td class="text-nowrap">
+                                        <a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-outline-primary btn-sm">
+                                            <i class="far fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <a th:href="@{/user/delete/{id}(id=${user.id})}" class="btn btn-outline-danger btn-sm">
+                                            <i class="far fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>-->
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer clearfix">
+
+
+                            <!--Pagination work start -------------------------------------------------------------- -->
+                            <div th:if = "${totalPages > 1}">
+
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" th:if = "${currentPage > 1}" th:href="@{'/user/index?pageNum=1'+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
+                                        <span class="page-link" th:unless="${currentPage > 1}">First</span>
+                                    </li>
+
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" th:if = "${currentPage > 1}" th:href="@{'/user/index?pageNum=' + ${currentPage - 1}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">&laquo;</a>
+                                        <span class="page-link" th:unless="${currentPage > 1}">&laquo;</span>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" th:if = "${currentPage > 1}" th:href="@{'/user/index?pageNum=' + ${currentPage - 1}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Prev</a>
+                                        <span class="page-link" th:unless="${currentPage > 1}">Prev</span>
+                                    </li>
+
+
+                                    <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                      <a class="page-link" th:if="${currentPage != i}" th:href="@{'/user/index?pageNum=' + ${i}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                                      <a class="page-link active" th:unless="${currentPage != i}">[[${i}]]</a>  &nbsp; &nbsp;
+                                    </li>
+
+
+                                    <li class="page-item">
+                                        <a class="page-link" th:if="${currentPage < totalPages}" th:href="@{'/user/index?pageNum=' + ${currentPage + 1}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                                        <span class="page-link" th:unless="${currentPage < totalPages}">Next</span>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" th:if="${currentPage < totalPages}" th:href="@{'/user/index?pageNum=' + ${currentPage + 1}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">&raquo;</a>
+                                        <span class="page-link" th:unless="${currentPage < totalPages}">&raquo;</span>
+                                    </li>
+
+                                    <li class="page-item">
+                                        <a class="page-link" th:if="${currentPage < totalPages}" th:href="@{'/user/index?pageNum=' + ${totalPages}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                                        <span class="page-link" th:unless="${currentPage < totalPages}">Last</span>
+                                    </li>
+                                </ul>
+
+                                <div class = "pagination pagination-sm m-0 float-right mr-5">
+                                    <b>Total Rows: [[${totalItems}]]</b>
+                                </div>
+
+                            </div>
+                            <!--/.Pagination work end --------------------------------------------------------------- -->
+
+
+                        </div>
+                        <!-- /.card-body -->
+
+
+
+                    </div>
+                    <!-- /.card -->
+
+
+                        </div>
+
+                    </div>
+                </div> <!-- /. Customize user body content -->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+
+
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+<!-- PAGE STYLES -->
+<link rel="stylesheet" href="/static/css/application.css" th:href="@{/css/application.css}">
+
+<script>
+    function deleteItem(id) {
+        event.preventDefault(); // prevent form submit
+        const url = '/hrms/user/delete/' + id;
+
+        swal({
+                title: "Are you sure?",
+                text: "But you will still be able to retrieve this file.",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel please!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+                if (isConfirm) {
+                    window.location.href =url;
+                } else {
+                    swal("Cancelled", "Your file is safe :)", "error");
+                }
+
+            });
+    }
+
+    $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert-dismissible").alert('close');
+    });
+</script>
+
+</body>
+</html>

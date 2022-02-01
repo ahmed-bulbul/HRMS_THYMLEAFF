@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody -->
+    <!--alternative solution to use th:block in header fragment -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">Visitors Log</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Visitors Log</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Visitors Log</a></li>
+                            <li class="breadcrumb-item active">Edit</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+
+                <!-- Horizontal Form -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Visitors Log</h3>
+                        &nbsp;&nbsp;
+                        <a href="/user/index" th:href="@{/visitorslog/index}" class=""><i class="fas fa-long-arrow-alt-left"></i> Back to List</a>
+                        &nbsp;|&nbsp;
+                        <a href="/user/create" th:href="@{/visitorslog/create}" class=""><i class="fas fa-file-alt"></i> New Form</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="#" th:action="@{/visitorslog/update}" th:object="${object}" method="post" class="form-horizontal">
+                        <div class="card-body">
+
+<!--                            <input type="hidden" id="id" th:field="*{id}">-->
+
+                            <div class="form-group row">
+                                <label for="id" class="col-form-label col-sm-2 ">ID</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{id}" class="form-control" id="id" readonly />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="userId" class="col-form-label col-sm-2 ">User Id</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{userId}" class="form-control" id="userId" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="userAgent" class="col-form-label col-sm-2 ">User Agent</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{userAgent}" class="form-control" id="userAgent" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('userAgent')}" th:errors="*{userAgent}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="ipAddress" class="col-form-label col-sm-2 ">Ip Address</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{ipAddress}" class="form-control" id="ipAddress" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('ipAddress')}" th:errors="*{ipAddress}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="referrer" class="col-form-label col-sm-2 ">Referrer</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{referrer}" class="form-control" id="referrer" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('referrer')}" th:errors="*{referrer}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="visitPage" class="col-form-label col-sm-2 ">Visit Page</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{visitPage}" class="form-control" id="visitPage" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('visitPage')}" th:errors="*{visitPage}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="visitUrl" class="col-form-label col-sm-2 ">Visit Url</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{visitUrl}" class="form-control" id="visitUrl" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('visitUrl')}" th:errors="*{visitUrl}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="visitTime" class="col-form-label col-sm-2 ">Visit Time</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{visitTime}" class="form-control" id="visitTime" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('visitTime')}" th:errors="*{visitTime}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="lastActiveTime" class="col-form-label col-sm-2 ">Last Active Time</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{lastActiveTime}" class="form-control" id="lastActiveTime" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('lastActiveTime')}" th:errors="*{lastActiveTime}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="internetProfile" class="col-form-label col-sm-2 ">Internet Profile</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{internetProfile}" class="form-control" id="internetProfile" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('internetProfile')}" th:errors="*{internetProfile}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="internalReference" class="col-form-label col-sm-2 ">Internal Reference</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{internalReference}" class="form-control" id="internalReference" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('internalReference')}" th:errors="*{internalReference}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="externalReference" class="col-form-label col-sm-2 ">External Reference</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{externalReference}" class="form-control" id="externalReference" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('externalReference')}" th:errors="*{externalReference}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="actionLog" class="col-form-label col-sm-2 ">Action Log</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{actionLog}" class="form-control" id="actionLog" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('actionLog')}" th:errors="*{actionLog}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="creationDateTime" class="col-form-label col-sm-2 ">Creation DateTime</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{creationDateTime}" class="form-control" id="creationDateTime" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('creationDateTime')}" th:errors="*{creationDateTime}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="creationUser" class="col-form-label col-sm-2 ">Creation User</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{creationUser}" class="form-control" id="creationUser" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('creationUser')}" th:errors="*{creationUser}" class="text-danger"></span></div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label for="lastUpdateDateTime" class="col-form-label col-sm-2 ">Last UpdateDate Time</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{lastUpdateDateTime}" class="form-control" id="lastUpdateDateTime" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('lastUpdateDateTime')}" th:errors="*{lastUpdateDateTime}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="lastUpdateUser" class="col-form-label col-sm-2 ">Last Update User</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{lastUpdateUser}" class="form-control" id="lastUpdateUser" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('lastUpdateUser')}" th:errors="*{lastUpdateUser}" class="text-danger"></span></div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="/menu/index" th:href="@{/visitorslog/index}" class="btn btn-default"><i class="fas fa-times"></i> Cancel</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-info"><i class="fas fa-check"></i> Update</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+
+
+</body>
+</html>

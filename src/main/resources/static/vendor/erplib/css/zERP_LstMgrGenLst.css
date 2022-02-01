@@ -1,0 +1,411 @@
+/* 1. Doc List Common CSS ===========================*/
+#listCntrDiv {
+    /*float: left;*/
+}
+
+
+#ZERP_listGridPanel_scroller {
+    background: white;
+}
+
+
+#paginationContainer {
+    min-width: max-content;
+}
+
+
+/*List Table Design CSS Start =============================*/
+/*head table*/
+#listTableSearchForm {
+    border: none;
+}
+#listTableSearchForm thead th {
+    background-color : #f1f1f1; 
+    /*Datatables*/
+}
+#listTableSearchForm th {
+    font-size: 9pt;
+    font-weight: normal;
+    font-weight: 500;
+    color: #555555;
+}
+#listTableSearchForm tr:nth-child(even) {
+    background-color: #f9f9f9; /*Datatables*/
+}
+#listTableSearchForm th,
+#listTableSearchForm td {
+    
+
+    border: 1px solid #ddd;
+    border-top: none;
+
+
+    /*padding-left:    3px;*/
+    /*padding-right        : 3px;*/
+    /*text-align     : left;*/
+    /*vertical-align : top;*/
+}
+
+/*body table*/
+#listTable {
+    border: none;
+}
+#listTable thead th{
+    /*background-color : #f1f1f1; */
+    /*Datatables*/
+}
+#listTable th {
+    font-size: 9pt;
+    font-weight: normal;
+    color: #555555;
+}
+#listTable tr:nth-child(even) {
+    background-color: #f9f9f9; /*Datatables*/
+}
+
+#listTable tr.evenTr {
+    background-color: #f9f9f9; /*Datatables*/
+}
+#listTable tr.clicked {
+    background-color: #dffafd;
+}
+
+#listTable th,
+#listTable td {
+    /*border         : none;*/
+    border: 1px solid #ddd;
+    border: 1px solid #ECF0F1;
+    border: 1px solid ghostwhite;
+    /*padding        : 3px;*/
+    /*padding-left:    3px;*/
+    /*padding-right        : 3px;*/
+    text-align     : left;
+    vertical-align : top;
+}
+#listTable>tbody>tr>td {
+    /*padding: 8px;*/
+
+    /*padding-left: 8px;*/
+    /*padding-right: 8px;*/
+
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+
+    /*font-size: 15px;*/
+}
+
+#listTable>tbody>tr>td {
+    font: normal 11px/13px arial, tahoma, helvetica, sans-serif;
+}
+#listTable>tbody>tr>td {
+    vertical-align: top;
+    /*padding-top: 5px;*/
+    /*padding-bottom: 5px;*/
+    /*padding-left: 8px;*/
+    /*padding-right: 8px;*/
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: ignore;
+
+    line-height: 20px;
+    font-size: 11px;
+    color: #696969;
+}
+
+
+#listTable tr th center {
+    display: none;
+}
+
+#listTable_PopList tr th center {
+    display: none;
+}
+
+#listTableSearchForm tr td .searchFieldLabel {
+    padding: 2px 5px;
+}
+
+
+/*List Table Design CSS End*/   
+
+#ctable {
+    display: table;
+}
+.crow {display: table-row;}
+.ccell1 {
+    display: table-cell;
+    min-width: 20px;
+}
+.ccell2{
+    display: table-cell;
+    min-width: 20px;
+}
+.ccell3 {
+    display: table-cell;
+    min-width: 20px;
+}
+#ctable .ccell1, .ccell2, .ccell3, .ccell4 {
+    padding: 3px;
+}
+
+
+/*------- Success Warning and Error CSS ---------*/
+#listSuccessWarningErrorDiv {
+    display: block;
+}
+#listSuccessWarningErrorDiv .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#listSuccessWarningErrorDiv #listInfoDiv {
+    display: none;
+    color: #00529B;
+    background-color: #BDE5F8;
+    font-weight: bold;
+    padding: 1px;
+    margin: 1px 0px 1px 0px;
+    height: 25px;
+}
+#listSuccessWarningErrorDiv #listSuccessDiv {
+    display: none;
+    background-color: #6CBB3C;    
+    font-weight: bold;
+    color: white;
+    padding: 1px;
+    margin: 1px 0px 1px 0px;
+    height: 25px;
+}
+#listSuccessWarningErrorDiv #listWarningDiv {
+    display: none;
+    font-weight: bold;
+    padding: 1px;
+    margin: 1px 0px 1px 0px;
+    color: #9F6000;
+    background-color: #FEEFB3;
+    height: 25px;
+}
+#listSuccessWarningErrorDiv #listWarningDiv .close {
+    color: darkred;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 1px;    
+    cursor: pointer;
+}
+#listSuccessWarningErrorDiv #listErrorDiv {
+    display: none;
+    color: #D8000C;
+    background-color: #FFBABA;    
+    font-weight: bold;
+    padding: 1px;
+    margin: 1px 0px 1px 0px;
+    height: 25px;
+}
+
+
+/*------- Success Warning and Error CSS ---------*/
+
+
+/*------------- custom css --------------*/
+#listerp {
+    /*padding-top: 10px;*/
+}
+
+.erplistExpandDiv {
+    border: 1px solid gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*max-width: 450px;*/
+    padding-bottom: 30px;
+}
+.dateFieldExpand {
+    width: 350px;
+}
+.dateFieldExpand input {
+    width: 120px !important;
+}
+
+
+.dateFieldExpand:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    width: 0;
+    height: 0;
+/*    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #ffffff;*/
+    border-top: 10px solid gray;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.customSearchExpand:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid gray;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+
+/*Check box css*/
+#listTable input[type=checkbox]{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 5px;
+  margin: 5px; 
+}
+
+#listTableSearchForm input[type=checkbox]{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 5px;
+  margin: 5px; 
+}
+
+
+/*------------General Color Class/Notification Color Start------------- */
+.strong {
+ font-weight: bold;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}
+.yellow {
+    color: yellow;
+}
+/*------------General Color Class/Notification Color End--------------- */
+
+/*Material Button in List Input fields*/
+#entryEditFieldForm .material-icons {
+    background: none;
+    border: none;
+}
+/*Material Button in List Input fields*/
+
+
+
+
+
+/*============ Combobox search CSS Start ====================*/
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+}
+.custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    /*border: 1px solid #c5dbec;*/
+    border: 1px solid #7F7F7F;
+    border-radius:3px;
+    font-family: Arial;
+    padding: 2px;
+    /* background: #dfeffc url(images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x; */
+    /* font-weight: bold; */
+    /* color: #2e6e9e; */
+}
+/*============ Combobox search CSS End ====================*/
+
+
+.pagination a {
+    /*background: #98c0f4;*/
+    background: #1ca8dd;
+}
+
+
+#listTable .material-icons {
+    font-size: 17px;
+}
+
+
+#popupListTable tr th center {
+    display: none;
+}
+
+
+.ListMgrExpandDiv {
+    border: 1px solid gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*max-width: 450px;*/
+    padding-bottom: 30px;
+}
+
+.ListMgrExpandDiv table th,
+.ListMgrExpandDiv table td {
+    /*border         : none;*/
+    border: 1px solid #ddd;
+    /*padding        : 3px;*/
+    /*padding-left:    3px;*/
+    /*padding-right        : 3px;*/
+    text-align     : left;
+    vertical-align : top;
+}
+
+.ListMgrExpandDiv input {
+    border-radius: 3px;
+    height: 25px;
+    border: 1px solid cornflowerblue;
+    padding: 2px;
+}
+
+.ListMgrExpandDiv table td span {
+    font-size: 12px;
+}
+
+
+
+
+#listTable tbody td.NumberClass div {
+    text-align: right;
+}
+
+
+/*----- Create issue for two line space on first line@2020-07-23 ----*/
+#listTable tbody tr td {
+    white-space: normal !important;
+}
+
+/*----- From now make one line show and elapsis dot dot@2020-07-2------*/
+/*#listTable tbody tr td div {
+    white-space: nowrap;
+}
+*/
+

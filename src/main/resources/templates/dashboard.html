@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <!--suppress CheckTagEmptyBody, HtmlUnknownTag -->
+    <!--alternative solution to use th:block in header fragment, HtmlUnknownTag -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">Admin Panel</title>
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div id="mainSidebar" th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Admin Panel</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Admin Panel</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+<!--                <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>-->
+                <div sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">
+                </div>
+
+<!--                <div th:include="layouts/_templateBody :: templateBody"></div>-->
+
+                <!--suppress HtmlUnknownTag -->
+                <!--suppress CheckTagEmptyBody -->
+<!--                <th:block th:utext="${T(com.basic.app.util.TestUtils).toUpperCase2('hello world 123')}"></th:block>-->
+
+<!--                <div class="row">-->
+<!--                    <div sec:authorize="hasAnyAuthority('ROLE_ADMIN', 'EDITOR')"  th:remove="tag" th:utext="${HTML_visitorsLog}" ></div>-->
+<!--&lt;!&ndash;                    <div th:remove="tag" th:utext="${HTML_nOfSrvReqStr}"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div th:remove="tag" th:utext="${HTML_nOfUserStr}"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div th:remove="tag" th:utext="${HTML_onTechUserStr}"></div>&ndash;&gt;-->
+<!--                </div>-->
+
+
+
+<!-- .......................Main report rendering Start .............................................................-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-header">-->
+<!--                                <h5 class="card-title">Yearly Service Request Report</h5>-->
+
+<!--                                <div class="card-tools">-->
+<!--                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">-->
+<!--                                        <i class="fas fa-minus"></i>-->
+<!--                                    </button>-->
+<!--                                    <button type="button" class="btn btn-tool" data-card-widget="remove">-->
+<!--                                        <i class="fas fa-times"></i>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--                            <div class="card-body">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-md-9" id="cd_chartFromToLabelLoader">-->
+<!--                                        <p class="text-center" id="cd_chartFromToLabel">-->
+<!--                                            <strong>Service: 1 Jan, 2020 -  31 Dec, 2020</strong>-->
+<!--                                        </p>-->
+
+<!--                                        <div class="chart">-->
+<!--                                            &lt;!&ndash; Sales Chart Canvas &ndash;&gt;-->
+<!--                                            <canvas id="salesChart" height="180" style="height: 180px;"></canvas>-->
+<!--                                        </div>-->
+<!--                                        &lt;!&ndash; /.chart-responsive &ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /.col &ndash;&gt;-->
+<!--                                    <div class="col-md-3">-->
+
+
+
+<!--                                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Chart Data Filter Handling Start -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                                        <div class="card mb-0 shadow-sm bg-white rounded" style="margin-left: 13px;">-->
+<!--                                            <div class="card-header">-->
+<!--                                                <h3 class="card-title">Filter Parameters</h3>-->
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--                                            <div class="card-body pb-0 pt-1" id="cdFilterParameterForm">-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label for="cd_fromDate">From Date</label>-->
+<!--                                                    <input type="text" class="form-control" id="cd_fromDate" th:value="${param.orderPlaceTimeFrom}" value="" placeholder="" autocomplete="off">-->
+<!--                                                </div>-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label for="cd_toDate">To Date</label>-->
+<!--                                                    <input type="text" class="form-control" id="cd_toDate" th:value="${param.orderPlaceTimeTo}" value="" placeholder="" autocomplete="off">-->
+<!--                                                </div>-->
+
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash; /.card-body &ndash;&gt;-->
+<!--                                            <div class="card-footer text-center">-->
+<!--                                                <a href="/" th:href="@{/}" class="btn btn-outline-info btn-xs" style="width: 33%;">Clear</a>-->
+<!--                                                <a href="javascript:void(0)" onclick="filterServiceRequestChartData(this);" class="btn btn-outline-primary btn-xs" style="width: 65%;">Do Filter</a>-->
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash; /.card-footer &ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                        &lt;!&ndash;/.card &ndash;&gt;-->
+<!--                                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Chart Data Filter Handling End -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /.col &ndash;&gt;-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; /.row &ndash;&gt;-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; ./card-body &ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="card-footer">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                            &lt;!&ndash; /.card-footer &ndash;&gt;-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; /.card &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.col &ndash;&gt;-->
+<!--                </div>-->
+                <!-- /.row -->
+<!-- .......................Main report rendering End ...............................................................-->
+
+
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-9">-->
+
+
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Service Order Handling Start -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                        &lt;!&ndash;suppress ThymeleafVariablesResolveInspection &ndash;&gt;-->
+<!--                        <div class="alert alert-warning alert-dismissible" th:if="${warningMsg}">-->
+<!--                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>-->
+<!--                            <i class="icon fas fa-check"></i>-->
+<!--                            &lt;!&ndash;suppress ThymeleafVariablesResolveInspection &ndash;&gt;-->
+<!--                            <span th:text="${warningMsg}"></span>-->
+<!--                        </div>-->
+
+
+<!--                        &lt;!&ndash; Default box &ndash;&gt;-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-header">-->
+<!--                                <h3 class="card-title">Latest Service Orders</h3>-->
+<!--                                <div class="card-tools">-->
+<!--                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">-->
+<!--                                        <i class="fas fa-minus"></i></button>-->
+<!--                                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">-->
+<!--                                        <i class="fas fa-times"></i></button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="card-body p-0">-->
+
+
+<!--                                &lt;!&ndash; Customize user body content &ndash;&gt;-->
+<!--                                <div th:switch="${objectList}">-->
+
+<!--                                    <div class="col-md-12">-->
+<!--                                        <h2 th:case="null">No record found !!</h2>-->
+<!--                                        <div th:case="*" class="table-responsive">-->
+
+<!--                                            <table class="table table-striped projects">-->
+<!--                                                <thead>-->
+<!--                                                <tr>-->
+<!--                                                    <th>ID</th>-->
+<!--                                                    <th>Order Code</th>-->
+<!--                                                    <th>Place Time</th>-->
+<!--                                                    <th>Status</th>-->
+<!--                                                    <th>Client Name</th>-->
+<!--                                                    <th>Technician Name</th>-->
+<!--                                                    <th>Service Item</th>-->
+<!--                                                </tr>-->
+<!--                                                </thead>-->
+<!--                                                <tbody>-->
+<!--                                                <tr th:each="thisObj : ${objectList}">-->
+<!--                                                    <td th:text="${thisObj.id}"></td>-->
+<!--                                                    <td><a th:text="${thisObj.orderCode}" th:href="@{/serviceorder/show/{id}(id=${thisObj.id})}"></a></td>-->
+<!--&lt;!&ndash;                                                    <td th:text="${thisObj.orderPlaceTime}"></td>&ndash;&gt;-->
+<!--                                                    <td th:text="${#calendars.format(thisObj.orderPlaceTime, 'dd/MMM/yyyy hh:mm a')}"></td>-->
+<!--                                                    <td>-->
+<!--                                                        <span th:if="${thisObj.status == 0}" class="badge badge-warning">Pending</span>-->
+<!--                                                        <span th:if="${thisObj.status == 1}" class="badge badge-info">Accept</span>-->
+<!--                                                        <span th:if="${thisObj.status == 2}" class="badge badge-success">Complete</span>-->
+<!--                                                        <span th:if="${thisObj.status == 3}" class="badge badge-danger">Reject</span>-->
+<!--                                                    </td>-->
+<!--                                                    <td th:text="${thisObj.clientUserName}"></td>-->
+<!--                                                    <td th:text="${thisObj.technicianUserName}"></td>-->
+<!--                                                    <td th:text="${thisObj.serviceItemName}"></td>-->
+<!--                                                </tr>-->
+<!--                                                </tbody>-->
+<!--                                            </table>-->
+
+<!--                                        </div>-->
+<!--                                        &lt;!&ndash; /.card-body &ndash;&gt;-->
+
+<!--                                        <div class="card-footer clearfix" th:with="pagePath='/dashboard'">-->
+<!--                                            <div th:include="layouts/_pagination :: defaultPagination"></div>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /.card &ndash;&gt;-->
+
+
+<!--                                </div>-->
+<!--                                &lt;!&ndash; /. Customize user body content &ndash;&gt;-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Service Order Handling End -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+
+<!--                    </div>-->
+
+<!--                    <div class="col-md-3">-->
+
+
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; List Filter Handling Start -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-header">-->
+<!--                                <h3 class="card-title">Filter Parameters</h3>-->
+
+<!--                                <div class="card-tools">-->
+<!--                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>-->
+<!--                                    </button>-->
+<!--                                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--                            <div class="card-body" id="qFilterParameterForm">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="fromDate">From Date</label>-->
+<!--                                    <input type="text" class="form-control" id="fromDate" th:value="${param.orderPlaceTimeFrom}" value="" placeholder="" autocomplete="off">-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="toDate">To Date</label>-->
+<!--                                    <input type="text" class="form-control" id="toDate" th:value="${param.orderPlaceTimeTo}" value="" placeholder="" autocomplete="off">-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="orderCode">Order Code</label>-->
+<!--                                    <input type="text" class="form-control" id="orderCode" value="" th:value="${param.orderCode}"  placeholder="" autocomplete="off">-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group">-->
+<!--                                    <label for="adv_byChooseParam">By Choose Params</label>-->
+<!--                                    <select name="adv_byChooseParam" class="form-control" id="adv_byChooseParam">-->
+<!--                                        <option value="">-&#45;&#45;</option>-->
+<!--                                        <option value="adv_today_cs">Today Complete Services</option>-->
+<!--                                        <option value="adv_today_ps">Today Pending Services</option>-->
+<!--                                        <option value="adv_all_cs">All Complete Services</option>-->
+<!--                                        <option value="adv_all_ps">All Pending Services</option>-->
+<!--                                        <option value="adv_all_as">All Accepted Service Order</option>-->
+<!--                                        <option value="adv_all_rs">All Rejected Service Order</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                            &lt;!&ndash; /.card-body &ndash;&gt;-->
+<!--                            <div class="card-footer text-center">-->
+<!--                                <a href="/" th:href="@{/}" class="btn btn-outline-info btn-sm" style="width: 33%;">Clear</a>-->
+<!--                                <a href="javascript:void(0)" onclick="filterServiceOrderList(this);" class="btn btn-outline-primary btn-sm" style="width: 65%;">Do Filter</a>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; /.card-footer &ndash;&gt;-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;/.card &ndash;&gt;-->
+<!--                        &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; List Filter Handling End &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+
+
+
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+
+
+
+<!-- PAGE SCRIPTS -->
+<!--<script type="text/javascript" src="/static/vendor/adminlte/dist/js/pages/dashboard2.js" th:src="@{vendor/adminlte/dist/js/pages/dashboard2.js}"></script>-->
+
+<!-- Z-ERPLIB SCRIPTS -->
+<!--<script type="text/javascript" src="/static/vendor/erplib/js/JsClientAPI.js" th:src="@{/vendor/erplib/js/JsClientAPI.js}"></script>-->
+
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+<script type="text/javascript" src="/static/js/adminDashboard.js" th:src="@{/js/adminDashboard.js}"></script>
+<!--<script type="text/javascript" src="/static/js/adminDashboardChartRender.js" th:src="@{/js/adminDashboardChartRender.js}"></script>-->
+<!-- PAGE STYLES -->
+<link rel="stylesheet" href="/static/css/application.css" th:href="@{/css/application.css}">
+<link rel="stylesheet" href="/static/css/adminDashboard.css" th:href="@{/css/adminDashboard.css}">
+
+
+<script th:inline="javascript"> var contextRoot = /*[[@{/}]]*/ ''; </script>
+<script type="text/javascript">
+
+    var ZERP = ZERP || {};
+    ZERP.System = ZERP.System || {};
+    ZERP.System.contextPath = window.location.origin + contextRoot;
+
+    var SysParams = SysParams || {};
+    SysParams.appContextPath = window.location.origin + contextRoot;
+
+    SysParams.setAppContextPath = function() {
+        SysParams.appContextPath = window.location.origin + contextRoot;
+    };
+    SysParams.getAppContextPath = function() {
+        return SysParams.appContextPath;
+    };
+
+
+    $(document).ready(function() {
+
+        SysParams.setAppContextPath();
+
+        //Initialize Select2 Elements
+        $('.select2').select2();
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        });
+
+    });
+</script>
+
+
+
+</body>
+</html>

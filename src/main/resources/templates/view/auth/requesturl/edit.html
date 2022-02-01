@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--suppress CheckTagEmptyBody, HtmlUnknownTag -->
+    <!--alternative solution to use th:block in header fragment, HtmlUnknownTag -->
+    <th:block th:include="/layouts/_head :: head"></th:block>
+    <title id="pageTitle">Request URL Map</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="/layouts/_header :: header"></div>
+
+    <!-- Main Sidebar Container -->
+    <div th:insert="/layouts/_mainSidebarx :: mainSidebar"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Request URL Map</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Request URL Map</a></li>
+                            <li class="breadcrumb-item active">Edit</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+
+                <!-- Horizontal Form -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Request URL Map</h3>
+                        &nbsp;&nbsp;
+                        <a href="/user/index" th:href="@{/role/index}" class=""><i class="fas fa-long-arrow-alt-left"></i> Back to List</a>
+                        &nbsp;|&nbsp;
+                        <a href="/user/create" th:href="@{/role/create}" class=""><i class="fas fa-file-alt"></i> New Form</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="#" th:action="@{/requesturl/update}" th:object="${object}" method="post" class="form-horizontal">
+                        <div class="card-body">
+
+<!--                            <input type="hidden" id="id" th:field="*{id}">-->
+
+                            <div class="form-group row">
+                                <label for="id" class="col-form-label col-sm-2 ">ID</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{id}" class="form-control" id="id" readonly />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="url" class="col-form-label col-sm-2 ">URL</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{url}" class="form-control" id="url" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('url')}" th:errors="*{url}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="configAttribute" class="col-form-label col-sm-2 ">Access Roles</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{configAttribute}" class="form-control" id="configAttribute" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('configAttribute')}" th:errors="*{configAttribute}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="httpMethod" class="col-form-label col-sm-2 ">Http Method</label>
+                                <div class="col-sm-5">
+<!--                                    <input type="text" th:field="*{httpMethod}" class="form-control" id="httpMethod" placeholder="" />-->
+                                    <select th:field="*{httpMethod}" class="form-control" id="httpMethod">
+                                        <option value=""> -- </option>
+                                        <option value="GET">GET</option>
+                                        <option value="POST">POST</option>
+                                        <option value="PUT">PUT</option>
+                                        <option value="DELETE">DELETE</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('httpMethod')}" th:errors="*{httpMethod}" class="text-danger"></span></div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="creationUser" class="col-form-label col-sm-2 ">Creation User</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{creationUser}" class="form-control" id="creationUser" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('creationUser')}" th:errors="*{creationUser}" class="text-danger"></span></div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="creationDateTime" class="col-form-label col-sm-2 ">Creation Date Time</label>
+                                <div class="col-sm-5">
+                                    <input type="text" th:field="*{creationDateTime}" class="form-control" id="creationDateTime" placeholder="" />
+                                </div>
+                                <div class="col-sm-5"><span th:if="${#fields.hasErrors('creationDateTime')}" th:errors="*{creationDateTime}" class="text-danger"></span></div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="/menu/index" th:href="@{/requesturl/index}" class="btn btn-default"><i class="fas fa-times"></i> Cancel</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-info"><i class="fas fa-check"></i> Update</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+
+
+
+
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer th:include="layouts/_footer :: footer" class="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<div th:include="layouts/_footerScripts :: footerScripts"></div>
+<!-- PAGE SCRIPTS -->
+<script type="text/javascript" src="/static/js/application.js" th:src="@{/js/application.js}"></script>
+
+
+</body>
+</html>
