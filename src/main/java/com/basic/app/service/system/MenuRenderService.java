@@ -10,10 +10,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
+
 @Service
 public class MenuRenderService {
 
-//    String menuSession = "appLeftSideMenu";
+    //    String menuSession = "appLeftSideMenu";
 //    String headerMenuSession = "appLeftSideMenu";
     static String leftSideMenuSession = "appLeftSideMenu";
 //    String dashboardMenuSession = "appLeftSideMenu";
@@ -103,7 +104,7 @@ public class MenuRenderService {
         if(parentMenu == null){
             systemMenuList = repository.getAllByIsActiveAndParentMenuIsNullOrderBySequenceAsc(true);
         } else {
-           systemMenuList = repository.getAllByIsActiveAndParentMenuOrderBySequenceAsc(true, parentMenu);
+            systemMenuList = repository.getAllByIsActiveAndParentMenuOrderBySequenceAsc(true, parentMenu);
         }
 
         int itemSize = systemMenuList.size();
@@ -118,7 +119,7 @@ public class MenuRenderService {
 
             // check authorization
             if(!systemMenuAuthService.isAuthorized(menuCode, menuUrl)) continue;
-            System.out.println("System Menu : " + systemMenu.getCode());
+
             Integer countChild = countChild(systemMenu);
             if (countChild > 0) {
                 menuString.append( generateHtmlMenuStringPre(systemMenu, level, true) );
@@ -156,3 +157,4 @@ public class MenuRenderService {
 
 
 }
+
