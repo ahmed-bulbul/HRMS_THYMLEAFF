@@ -23,5 +23,10 @@ public class AuthController {
         return  "/auth/403";
     }
 
+    @GetMapping("404")
+    public String error404(){
+        return  "/auth/404";
+    }
+
 
 }
