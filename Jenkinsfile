@@ -16,6 +16,10 @@ pipeline {
                 deleteDir()
             }
         }
+        stage('Clean workspace') {
+            deleteDir()
+            sh 'ls -lah'
+        }
         stage('S-2: Checkout code') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/bulbul-dev/HRMS_THYMLEAFF.git']]])
